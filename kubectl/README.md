@@ -11,3 +11,7 @@ kubectl config set-context culster-name  --cluster=cluster-name --user=cluster-n
 
 kubectl config use-context cluster-name
 ```
+
+`metallb`通过k8s原生的方式提供LB类型的Service支持，开箱即用
+
+[https://metallb.universe.tf/](https://metallb.universe.tf/)

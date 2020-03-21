@@ -1,0 +1,209 @@
+" Set vundle settings here
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set nobackup
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'        "https://github.com/VundleVim/Vundle.vim
+
+" Custom plugins
+Plugin 'scrooloose/nerdtree'         "https://github.com/scrooloose/nerdtree
+Plugin 'MattesGroeger/vim-bookmarks' "https://github.com/MattesGroeger/vim-bookmarks
+Plugin 'maciakl/vim-neatstatus'      "https://github.com/maciakl/vim-neatstatus
+
+
+Plugin 'tpope/vim-fugitive'
+" Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/syntastic'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'tpope/vim-markdown'
+Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'cespare/vim-toml'
+Plugin 'tpope/vim-commentary'
+Plugin 'burnettk/vim-angular'
+Plugin 'pangloss/vim-javascript'
+Plugin 'majutsushi/tagbar'
+Plugin 'mxw/vim-jsx'
+Plugin 'ekalinin/dockerfile.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'bling/vim-bufferline'
+Plugin 'mileszs/ack.vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" Vim5 and later versions support syntax highlighting. Uncommenting the
+" following enables syntax highlighting by default.
+if has("syntax")
+    syntax on   " 语法高亮
+endif
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+"have Vim load indentation rules and plugins according to the detected
+"filetype on
+"filetype plugin indent on
+endif
+
+" 显示行号
+set number!
+set rnu!
+colorscheme desert
+syntax enable
+set vb
+set novisualbell     " 禁止闪屏，关闭bell声音
+set vb t_vb=
+set cursorline
+set autoindent
+set softtabstop=4    " 设置软制表符的宽度
+set shiftwidth=2     " (自动) 缩进使用的4个空格
+set tabstop=2        " 设置制表符(tab键)的宽度
+set expandtab        " 行首tab转换为4个空格
+set cindent          " 使用 C/C++ 语言的自动缩进方式
+set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s     "设置C/C++语言的具体缩进方式
+set showmatch        " 设置匹配模式，显示匹配的括号
+set linebreak        " 整词换行
+set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
+set ruler            " 标尺，用于显示光标位置的行号和列号，逗号分隔。每个窗口都有自己的标尺。如果窗口有状态行，标尺在那里显示。否则，它显示在屏幕的最后一行上
+set showcmd          " 命令行显示输入的命令
+set showmode         " 命令行显示vim当前模式
+set incsearch        " 输入字符串就显示匹配点
+set enc=utf-8        " 文件编码
+set cursorline
+highlight CursorLine   cterm=NONE ctermbg=blue ctermfg=white guibg=NONE guifg=NONE
+" highlight CursorColumn cterm=NONE ctermbg=green ctermfg=NONE guibg=NONE guifg=NONE
+
+" NERDTree settings
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" vim-bookmarks settings
+let g:bookmark_auto_close = 1
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_highlight_lines = 1
+let g:bookmark_center = 1
+let g:bookmark_location_list = 1
+
+" key mapping
+:inoremap { {}<ESC>i
+:map <f2> :NERDTreeToggle<CR>
+
+"MarkDown settings
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:markdown_minlines = 100
+let g:polyglot_disabled = ['graphql']
+"NERDTree快捷键
+" nmap <F2> :NERDTree  <CR>
+" NERDTree.vim
+nmap <F8> :TagbarToggle<CR>
+let g:NERDTreeWinPos="left"
+let g:NERDTreeWinSize=25
+let g:NERDTreeShowLineNumbers=1
+let g:neocomplcache_enable_at_startup = 1
+" autocmd vimenter * NERDTree
+"
+
+" 缓冲区文件跳转快捷键
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_underscore_arrow_function = "🞅"
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_ngdoc = 1
+
+" ################追加配置Ⅱ,自动编写文件头部信息###################################
+autocmd BufNewFile *.py,*.sh,*.c exec ":call SetTitle()"
+""定义函数SetTitle，自动插入文件头
+func SetTitle()
+        "如果文件类型为.sh文件
+        if &filetype == 'sh'
+                call setline(1,"\#!/bin/bash")
+                call append(line("."),   "\###############################################")
+                call append(line(".")+1, "\# Author        : Nelson")
+                call append(line(".")+2, "\# EMail         : lovetesting@protonmail.com")
+                call append(line(".")+3, "\# Created Time  : ".strftime("%F %T"))
+                call append(line(".")+4, "\# File Name     : ".expand("%"))
+                call append(line(".")+5, "\# Description   : ")
+                call append(line(".")+6, "\###############################################")
+                call append(line(".")+7, "")
+        endif
+       "如果文件类型为.py文件
+        if &filetype == 'python'
+                call setline(1, "\#!/usr/bin/env python3")
+                call append(line("."),   "\# -*- coding:utf-8 -*-")
+                call append(line(".")+1, "\###############################################")
+                call append(line(".")+2, "\# Author        : Nelson")
+                call append(line(".")+3, "\# EMail         : lovetesting@protonmail.com")
+                call append(line(".")+4, "\# Created Time  : ".strftime("%F %T"))
+                call append(line(".")+5, "\# File Name     : ".expand("%"))
+                call append(line(".")+6, "\# Description   : ")
+                call append(line(".")+7, "\###############################################")
+                call append(line(".")+8, "")
+        endif
+        "如果文件类型为.c文件
+        if &filetype == "c"
+                call setline(1, "\#include<stdio.h>")
+                call append(line("."), "")
+        endif
+endfunc
+" 新建文件后，自动定位到文件末尾
+autocmd BufNewFile * normal G
+" 自动补全括号 引号
+" inoremap ' ''<ESC>i
+" inoremap " ""<ESC>i
+" inoremap ( ()<ESC>i
+" inoremap [ []<ESC>i
+" inoremap { {<CR>}<ESC>O
+let g:syntastic_yaml_checkers = ['yamllint']

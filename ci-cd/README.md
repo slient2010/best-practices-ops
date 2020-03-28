@@ -10,6 +10,8 @@
 
 [https://dev.to/ruanbekker/how-to-setup-a-concourse-ci-server-597g](https://dev.to/ruanbekker/how-to-setup-a-concourse-ci-server-597g)
 
+[https://github.com/starkandwayne/concourse-tutorial](https://github.com/starkandwayne/concourse-tutorial)
+
 ## install postgres client on Mac
 
 [https://thecodersblog.com/PostgreSQL-PostGIS-installation/](https://thecodersblog.com/PostgreSQL-PostGIS-installation/)

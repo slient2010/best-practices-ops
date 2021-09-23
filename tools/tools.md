@@ -25,3 +25,10 @@ Excalidraw is a whiteboard tool that lets you easily sketch diagrams with a hand
 CodiMD lets you collaborate in real-time with markdown. Built on HackMD source code, CodiMD lets you host and control your team's content with speed and ease.
 
 [https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-manual-deployment](https://hackmd.io/c/codimd-documentation/%2Fs%2Fcodimd-manual-deployment)
+
+## MySQL Audit Platform
+
+[http://yearning.io/](http://yearning.io/)
+
+## Test tools
+[http://allure.qatools.ru/](http://allure.qatools.ru/)

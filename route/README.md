@@ -6,6 +6,8 @@
 
 ```bash
 iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o wg0 -j MASQUERADE
+# for debug, to_tg is just a label
+iptables -A PREROUTING -t mangle -i eth0 -s 192.168.100.0/24 -j LOG --log-prefix='[to_tg] '
 ```
 
 ```bash

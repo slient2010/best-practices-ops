@@ -29,6 +29,9 @@ ip route add 0/0 via 10.0.0.10 dev wg0 table 100
 # DNS
 ip rule add to 8.8.0.0/16 table 100
 ip rule add to 91.108.0.0/16 table 100
+
+# debug
+ip rule list
 ```
 
 [https://medium.com/@marthin.pasaribu_72336/linux-policy-routing-introduction-37933f8cb62e](https://medium.com/@marthin.pasaribu_72336/linux-policy-routing-introduction-37933f8cb62e) 

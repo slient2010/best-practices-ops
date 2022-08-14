@@ -85,3 +85,10 @@ Notes:
 ip route
 ```
 
+## do some tests
+
+![screenshot-1](./images/screenshot-1.png)
+
+![screenshot-2](./images/screenshot-2.png)
+
+

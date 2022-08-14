@@ -32,6 +32,7 @@ ip rule add to 91.108.0.0/16 table 100
 
 # debug
 ip rule list
+ip rule del to 108.160.0.0/16 table 100
 ```
 
 [https://medium.com/@marthin.pasaribu_72336/linux-policy-routing-introduction-37933f8cb62e](https://medium.com/@marthin.pasaribu_72336/linux-policy-routing-introduction-37933f8cb62e) 
